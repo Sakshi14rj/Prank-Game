@@ -1,0 +1,202 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
+
+class MyPage extends JFrame // Inheriting the Properties of JFrame
+{
+    static int x = 0, y = 0;
+    static JLabel counter = new JLabel(x + " : " + y);
+
+    public MyPage() {
+        getContentPane().setBackground(Color.GRAY);
+        setSize(800, 600);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
+    public class SwingContainerDemo {
+        public SwingContainerDemo(){
+        prepareGUI();
+        }
+
+    public static void main(String[] rk) {
+        // Creating a JFrame
+
+        MyPage p = new MyPage();
+
+        // Adding GUI Components in the Frame
+
+        JLabel l = new JLabel("Star Wars Saga ;>");
+        l.setFont(new Font("Serif", Font.BOLD, 30));
+        l.setForeground(Color.BLACK);
+        l.setBounds(120, 30, 600, 30);
+        p.add(l);
+
+        JLabel l4 = new JLabel("Click Down here!");
+        p.add(l4);
+        l4.setFont(new Font("Serif", Font.BOLD, 20));
+        l4.setForeground(Color.BLACK);
+        l4.setBounds(598,50,200,30);
+        Font f = new Font("Serif", Font.BOLD, 17);
+
+        JLabel l1 = new JLabel("Are u a Real Fan?");
+        p.add(l1);
+        l1.setFont(f);
+        l1.setForeground(Color.BLACK);
+      
+        JTextField t1 = new JTextField();
+        p.add(t1);
+        t1.setFont(new Font("Serif", Font.ROMAN_BASELINE,20));
+        t1.setForeground(Color.black);
+        p.add(l1);
+        l1.setBounds(150, 120, 200, 30);
+        p.add(t1);
+        t1.setBounds(300, 120, 200, 40);
+
+        String[] gen = { "Select","I'M CINDERELLA","JOHNATHAN?","WE'R AT DISNEY!" };
+        JLabel l2 = new JLabel("Fav Quote");
+        p.add(l2);
+        l2.setFont(f);
+        l2.setForeground(Color.BLACK);
+
+        JComboBox<String> c1 = new JComboBox<>(gen);
+        p.add(c1);
+        c1.setFont(new Font("Serif", 2, 24));
+        c1.setForeground(Color.BLUE);
+        p.add(l2);
+        l2.setBounds(150, 180, 200, 30);
+        p.add(c1);
+        c1.setBounds(300, 180, 200, 40);
+        
+        String[] killers = { "Revenger","Deadpool","Venom","MoonKnight" };
+        JLabel l5 = new JLabel("Fill the text field, choose the option u want then boop the Boop me and see if u can see the Ans...");
+        p.add(l5);
+        l5.setFont(f);
+        l5.setForeground(Color.BLACK);
+        l5.setBounds(50,450,900,30);
+
+        JComboBox<String> c2 = new JComboBox<>(killers);
+        p.add(c2);
+        c2.setFont(new Font("Serif", 2, 24));
+        c2.setForeground(Color.BLUE);
+        
+        p.add(c2);
+        c2.setBounds(600, 150, 120,30);
+
+        JLabel l3 = new JLabel("Power");
+        p.add(l3);
+        l3.setFont(f);
+        l3.setForeground(Color.BLACK);
+        p.add(l3);
+        l3.setBounds(150, 240, 200, 30);
+
+        JCheckBox jc1 = new JCheckBox("Archery");
+        p.add(jc1);
+        jc1.setBounds(300, 240, 200, 30);
+        jc1.setBackground(Color.WHITE);
+        jc1.setForeground(Color.BLUE);
+        jc1.setFont(new Font("Serif", 2, 24));
+        JCheckBox jc2 = new JCheckBox("Imortality");
+        p.add(jc1);
+        p.add(jc2);
+        jc2.setBounds(300, 270, 200, 30);
+        jc2.setBackground(Color.WHITE);
+        jc2.setForeground(Color.BLUE);
+        jc2.setFont(new Font("Serif", 2, 24));
+        JCheckBox jc3 = new JCheckBox("MMA");
+        p.add(jc1);
+        p.add(jc3);
+        jc3.setBounds(300, 300, 200, 30);
+        jc3.setBackground(Color.WHITE);
+        jc3.setForeground(Color.BLUE);
+        jc3.setFont(new Font("Serif", 2, 24));
+        JCheckBox jc4 = new JCheckBox("Money");
+        p.add(jc1);
+        p.add(jc4);
+        jc4.setBounds(300, 330, 200, 30);
+        jc4.setBackground(Color.WHITE);
+        jc4.setForeground(Color.BLUE);
+        jc4.setFont(new Font("Serif", 2, 24));
+
+        JCheckBox b1 = new JCheckBox(" BOOP ME ");
+        p.add(b1);
+        b1.setBounds(362, 400, 100, 40);
+        JButton b2 = new JButton("Answer");
+        p.add(b2);
+        b2.setBounds(600, 75, 80,30);
+        
+
+
+        // Using Lambda Expressions to create a Listener (ActionListener) for Submit
+        // Button
+
+        b1.addActionListener(
+                ae -> {
+                    if (ae.getActionCommand().equals("BOOP ME ;)")) {
+                        if (t1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "DON'T TRY TO CAPTAIN MARVEL ME");
+                        } else if (c1.getSelectedIndex() == 0) {
+                            JOptionPane.showMessageDialog(null, "IT WILL RAIN DOWN HELL FIRE!!!!");
+                        } else if (c2.getSelectedIndex() == 0) {
+                            JOptionPane.showMessageDialog(null, "I'M ACTUALLY FRIENDS WITH BRUCE WAYNE");
+                        }
+                        else if (!jc1.isSelected() && !jc2.isSelected() && !jc3.isSelected() && !jc4.isSelected()) {
+                            JOptionPane.showMessageDialog(null, "ALFREEEDDD....WE HAVE SOMEONE TO KILL");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "CHECK THE ANS");
+                        }
+                    }
+                    
+                });
+        // Using Lambda Expressions to create a Listener (ActionListener) for Reset
+        // Button
+        b2.addActionListener(
+                ae -> {
+                    if (ae.getActionCommand().equals("Answer")) {
+                        if (t1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "DON'T TRY TO CAPTAIN MARVEL ME");
+                        } else if (c1.getSelectedIndex() == 0) {
+                            JOptionPane.showMessageDialog(null, "IT WILL RAIN DOWN HELL FIRE!!!!");
+                        } else if (c2.getSelectedIndex() == 0) {
+                            JOptionPane.showMessageDialog(null, "I'M ACTUALLY FRIENDS WITH BRUCE WAYNE");
+                        }
+                        else if (!jc1.isSelected() && !jc2.isSelected() && !jc3.isSelected() && !jc4.isSelected()) {
+                            JOptionPane.showMessageDialog(null, "ALFREEEDDD....WE HAVE SOMEONE TO KILL");
+                        } else if (!b1.isSelected()){
+                            JOptionPane.showMessageDialog(null, "Darth Vader Wants to know ur location");
+                        }
+                         else {
+                            JOptionPane.showMessageDialog(null, "huhuhuhu u've been LOKIED!");
+                        }
+                    }
+                });
+        p.add(counter);
+        counter.setBounds(620, 0, 80, 30);
+        counter.setForeground(Color.BLACK);
+        counter.setFont(new Font("Serif", 1, 20));
+
+        // Creating Thread to Update the Counter
+
+        Thread td = new Thread( // Lambda to implement Runnable
+                () -> {
+                    while (true) {
+                        if (y == 59) {
+                            x++;
+                            y = 0;
+                        } else
+                            y++;
+                        counter.setText(x + " : " + y);
+                        try {
+                            Thread.sleep(1000);
+                        } catch (Exception ex) {
+                        }
+                    }
+
+                });
+        td.start();
+
+        p.setVisible(true);
+    }
+} 
+}
